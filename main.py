@@ -5,14 +5,12 @@ import cv2
 
 model = YOLO("model/face-detection/yolov8n-face.pt")
 
-img_path = "images/people.jpg"
-
 cam = cv2.VideoCapture(1)
 
 while cam.isOpened():
-    succes, frame = cam.read()
+    success, frame = cam.read()
 
-    if succes:
+    if success:
         results = model(frame)
 
         annotated_frame = results[0].plot()
